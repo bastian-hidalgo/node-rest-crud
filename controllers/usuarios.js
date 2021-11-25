@@ -37,10 +37,12 @@ const usuariosPost = async (req, res = response) => {
 }
 const usuariosDelete = async (req, res = response) => {
   const { id } = req.params;
+  const uid = req.uid;
   // const user = await Usuario.findByIdAndDelete(id);
   const user = await Usuario.findByIdAndUpdate(id, {'estado': false});
   res.json({
     user,
+    uid
   });
 }
 
